@@ -11,7 +11,7 @@ class Ship:
 
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/turtle.bmp')
-        self.image = pygame.transform.scale(self.image, (48, 48))
+        self.image = pygame.transform.scale(self.image, (58, 58))
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.
