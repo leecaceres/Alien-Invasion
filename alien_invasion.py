@@ -109,8 +109,7 @@ class AlienInvasion:
         """Start a new game when the player clicks Play."""
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
-            # Reset the game settings.
-            self.settings.initialize_dynamic_settings()
+            
             self._start_game()
 
     def _check_keydown_events(self, event):
@@ -134,6 +133,9 @@ class AlienInvasion:
             self.ship.moving_left = False
 
     def _start_game(self):
+        # Reset the game settings.
+        self.settings.initialize_dynamic_settings()
+        
         # Reset the game statistics.
         self.stats.reset_stats()
         self.stats.game_active = True
@@ -212,7 +214,7 @@ class AlienInvasion:
         for alien in self.aliens.sprites():
             if alien.rect.bottom >= screen_rect.bottom:
                 # Treat this the same as if the ship got hit.
-                self._ship_hit
+                self._ship_hit()
                 break
     
     def _ship_hit(self):
